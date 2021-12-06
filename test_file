@@ -1,0 +1,32 @@
+Nov 29 15:22:01 m900-1 systemd[1256]: var-lib-docker-overlay2-542d9eaa266e25ac11d83acac1f4a08a97056942ea6f06a5743286d11901e1f4-merged.mount: Succeeded.
+Nov 29 15:22:01 m900-1 systemd[4032149]: var-lib-docker-overlay2-542d9eaa266e25ac11d83acac1f4a08a97056942ea6f06a5743286d11901e1f4-merged.mount: Succeeded.
+Nov 29 15:22:01 m900-1 systemd[1]: var-lib-docker-overlay2-542d9eaa266e25ac11d83acac1f4a08a97056942ea6f06a5743286d11901e1f4-merged.mount: Succeeded.
+Nov 29 15:22:01 m900-1 systemd[4032149]: var-lib-docker-overlay2-47f8207aa6de1fb0c560a3545450702853642263d0ab441741006858e1355d14-merged.mount: Succeeded.
+Nov 29 15:22:01 m900-1 systemd[1256]: var-lib-docker-overlay2-47f8207aa6de1fb0c560a3545450702853642263d0ab441741006858e1355d14-merged.mount: Succeeded.
+Nov 29 15:22:01 m900-1 systemd[1]: var-lib-docker-overlay2-47f8207aa6de1fb0c560a3545450702853642263d0ab441741006858e1355d14-merged.mount: Succeeded.
+Nov 29 15:22:27 m900-1 dbus-daemon[743]: [system] Activating via systemd: service name='org.freedesktop.resolve1' unit='dbus-org.freedesktop.resolve1.service' requested by ':1.9' (uid=0 pid=744 comm="/usr/sbin/NetworkManager --no-daemon " label="unconfined")
+Nov 29 15:22:27 m900-1 dbus-daemon[743]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.resolve1.service': Unit dbus-org.freedesktop.resolve1.service not found.
+Nov 29 15:22:29 m900-1 dbus-daemon[743]: [system] Activating via systemd: service name='org.freedesktop.resolve1' unit='dbus-org.freedesktop.resolve1.service' requested by ':1.9' (uid=0 pid=744 comm="/usr/sbin/NetworkManager --no-daemon " label="unconfined")
+Nov 29 15:22:29 m900-1 dbus-daemon[743]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.resolve1.service': Unit dbus-org.freedesktop.resolve1.service not found.
+Nov 29 15:20:01 lab1 kernel: [443852.881299] audit: type=1400 audit(1638161401.539:111667): apparmor="DENIED" operation="open" profile="snap.maas.supervisor" name="/dev/nvme0n1" pid=3986859 comm="amd64" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 29 15:20:01 lab1 kernel: [443852.882550] audit: type=1400 audit(1638161401.543:111668): apparmor="DENIED" operation="open" profile="snap.maas.supervisor" name="/dev/nvme1n1" pid=3986859 comm="amd64" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 29 15:20:01 lab1 kernel: [443852.883943] audit: type=1400 audit(1638161401.543:111669): apparmor="DENIED" operation="open" profile="snap.maas.supervisor" name="/dev/sda" pid=3986859 comm="amd64" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 29 15:20:03 lab1 kernel: [443854.674224] audit: type=1400 audit(1638161403.335:111670): apparmor="DENIED" operation="open" profile="snap.maas.supervisor" name="/dev/nvme0n1" pid=3986915 comm="amd64" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 29 15:20:03 lab1 kernel: [443854.675502] audit: type=1400 audit(1638161403.335:111671): apparmor="DENIED" operation="open" profile="snap.maas.supervisor" name="/dev/nvme1n1" pid=3986915 comm="amd64" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 29 15:20:03 lab1 kernel: [443854.676916] audit: type=1400 audit(1638161403.335:111672): apparmor="DENIED" operation="open" profile="snap.maas.supervisor" name="/dev/sda" pid=3986915 comm="amd64" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 29 15:20:03 lab1 kernel: [443855.165295] audit: type=1400 audit(1638161403.823:111673): apparmor="DENIED" operation="open" profile="snap.maas.supervisor" name="/dev/nvme0n1" pid=3986957 comm="amd64" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 29 15:20:03 lab1 kernel: [443855.167446] audit: type=1400 audit(1638161403.827:111674): apparmor="DENIED" operation="open" profile="snap.maas.supervisor" name="/dev/nvme1n1" pid=3986957 comm="amd64" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 29 15:20:03 lab1 kernel: [443855.169774] audit: type=1400 audit(1638161403.831:111675): apparmor="DENIED" operation="open" profile="snap.maas.supervisor" name="/dev/sda" pid=3986957 comm="amd64" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 29 15:20:04 lab1 kernel: [443855.623025] audit: type=1400 audit(1638161404.283:111676): apparmor="DENIED" operation="open" profile="snap.maas.supervisor" name="/dev/nvme0n1" pid=3986997 comm="amd64" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 29 07:53:53 wc-backup01 systemd[1935288]: Listening on GnuPG cryptographic agent (ssh-agent emulation).
+Nov 29 07:53:53 wc-backup01 systemd[1935288]: Listening on GnuPG cryptographic agent and passphrase cache.
+Nov 29 07:53:53 wc-backup01 systemd[1935288]: Listening on debconf communication socket.
+Nov 29 07:53:53 wc-backup01 systemd[1935288]: Listening on D-Bus User Message Bus Socket.
+Nov 29 07:53:53 wc-backup01 systemd[1935288]: Reached target Sockets.
+Nov 29 07:53:53 wc-backup01 systemd[1935288]: Reached target Basic System.
+Nov 29 07:53:53 wc-backup01 systemd[1935288]: Reached target Main User Target.
+Nov 29 07:53:53 wc-backup01 systemd[1935288]: Startup finished in 102ms.
+Nov 29 07:53:53 wc-backup01 systemd[1]: Started User Manager for UID 1000.
+Nov 29 07:53:53 wc-backup01 systemd[1]: Started Session 45326 of user wcadmin.
+Nov 29 07:53:53 wc-backup01 systemd[1]: Started Session 45326 of user wcadmin.
+Nov 29 07:53:53 wc-backup01 systemd[1]: Started Session 45326 of user wcadmin.
