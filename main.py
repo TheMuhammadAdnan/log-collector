@@ -1,6 +1,8 @@
 import time
 from parser import Parser
+import requests
 
+url = 'http://127.0.0.1:8080'
 parser = Parser()
 payload_collector = []
 
@@ -12,7 +14,7 @@ def follow(thefile):
         if not line:
             if len(payload_collector) != 0:
                 print(payload_collector)
-                # send(payload)
+                requests.get(url=url, params={'payload_collector':payload_collector})
                 payload_collector = []
             time.sleep(0.1) # Sleep briefly
             continue
