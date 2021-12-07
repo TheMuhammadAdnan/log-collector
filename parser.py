@@ -32,13 +32,16 @@ class Parser(object):
 
     
     payload = {}
-    payload["timestamp"] = parsed[2] + parsed[1] + "//" + str(datetime.strptime(parsed[0], "%b").month) + "//" + str(date.today().year)
+    payload['log'] = {}
+    payload["time"] = parsed[2] + parsed[1] + "//" + str(datetime.strptime(parsed[0], "%b").month) + "//" + str(date.today().year)
     payload["hostname"]  = parsed[3]
-    payload["appname"]   = parsed[4]
-
+    payload['log']["Application"]   = parsed[4]
+    payload['logType'] = 'syslog'
+    payload['logName'] = 'syslog'
+    payload['siteName'] = ''
     if len(parsed) == 7:      
-      payload["pid"]       = parsed[5]
-      payload["message"]   = parsed[6]
+      payload['log']["pid"]       = parsed[5]
+      payload['log']["message"]   = parsed[6]
     elif len(parsed) == 6:
       proccess_parsed_text = parsed[5].replace(re.findall("\[.*?\]", parsed[5])[0] + " ", '') # remove extra content from it
       list_of_variables = proccess_parsed_text.split(" ")
@@ -46,14 +49,10 @@ class Parser(object):
       for a_variable in list_of_variables:
         if '=' in a_variable:
           list_from_a_variable = a_variable.split("=")
-          payload[list_from_a_variable[0]] = '='.join (map(str, list_from_a_variable[1:]))
+          payload['log'][list_from_a_variable[0]] = '='.join (map(str, list_from_a_variable[1:]))
         elif ':' in a_variable:
           list_from_a_variable = a_variable.split(":")
-          payload[list_from_a_variable[0]] = ':'.join (map(str, list_from_a_variable[1:]))
-
-
-      
+          payload['log'][list_from_a_variable[0]] = ':'.join (map(str, list_from_a_variable[1:]))      
     else:
-      raise Exception("Need to handle this log")
-      
+      raise Exception("Need to handle this log")  
     return payload
