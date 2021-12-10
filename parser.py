@@ -4,6 +4,12 @@ from time import strftime
 from datetime import datetime, date
 import re
 
+
+def clean_string(input):
+  if isinstance(input, int):
+    return input
+  elif isinstance(input, str):
+    return input.replace('"', '').replace("'", "").strip()
 class Parser(object):
   def __init__(self):
     ints = Word(nums)
@@ -33,15 +39,16 @@ class Parser(object):
     
     payload = {}
     payload['log'] = {}
-    payload["time"] = parsed[2] + parsed[1] + "//" + str(datetime.strptime(parsed[0], "%b").month) + "//" + str(date.today().year)
-    payload["hostname"]  = parsed[3]
-    payload['log']["Application"]   = parsed[4]
+    payload["time"] = parsed[2] + parsed[1] + "/" + str(datetime.strptime(parsed[0], "%b").month) + "/" + str(date.today().year)
+    payload["time"] = payload["time"].replace("//", "/")
+    payload["hostname"]  = clean_string(parsed[3])
+    payload['log']["Application"]   = clean_string(parsed[4])
     payload['logType'] = 'syslog'
     payload['logName'] = 'syslog'
     payload['siteName'] = ''
     if len(parsed) == 7:      
-      payload['log']["pid"]       = parsed[5]
-      payload['log']["message"]   = parsed[6]
+      payload['log']["pid"]       = clean_string(parsed[5])
+      payload['log']["message"]   = clean_string(parsed[6])
     elif len(parsed) == 6:
       proccess_parsed_text = parsed[5].replace(re.findall("\[.*?\]", parsed[5])[0] + " ", '') # remove extra content from it
       list_of_variables = proccess_parsed_text.split(" ")
@@ -49,10 +56,18 @@ class Parser(object):
       for a_variable in list_of_variables:
         if '=' in a_variable:
           list_from_a_variable = a_variable.split("=")
-          payload['log'][list_from_a_variable[0]] = '='.join (map(str, list_from_a_variable[1:]))
+          if '(' in list_from_a_variable[0]:
+            continue
+          if len(list_from_a_variable) < 2:
+            continue
+          payload['log'][list_from_a_variable[0]] = clean_string('='.join (map(str, list_from_a_variable[1:])))
         elif ':' in a_variable:
           list_from_a_variable = a_variable.split(":")
-          payload['log'][list_from_a_variable[0]] = ':'.join (map(str, list_from_a_variable[1:]))      
+          if '(' in list_from_a_variable[0]:
+            continue
+          if len(list_from_a_variable) < 2:
+            continue
+          payload['log'][list_from_a_variable[0]] = clean_string(':'.join (map(str, list_from_a_variable[1:])))
     else:
       raise Exception("Need to handle this log")  
     return payload
